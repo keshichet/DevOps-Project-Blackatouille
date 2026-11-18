@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackatouille - Recipe Manager</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/keshav-chettiar.js"></script>
+    <!-- Brayden: add your script tag here -->
+    <!-- Robin: add your script tag here -->
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Blackatouille</h1>
+
+        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#createRecipeModal">Create
+            Recipe</button>
+
+        <!-- ===== Brayden: recipe list + edit modal ===== -->
+
+        <!-- ===== Keshav: Create recipe modal ===== -->
+        <div class="modal fade" id="createRecipeModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create Recipe</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="createMessage"></div>
+                        <div class="form-group">
+                            <label for="recipeName">Name</label>
+                            <input type="text" class="form-control" id="recipeName">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipeServings">Servings</label>
+                            <input type="text" class="form-control" id="recipeServings">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipeIngredients">Ingredients (one per line: name, quantity, unit)</label>
+                            <textarea class="form-control" id="recipeIngredients" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipeSteps">Steps</label>
+                            <textarea class="form-control" id="recipeSteps" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="createRecipe()">Create Recipe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== Robin: delete recipe ===== -->
+    </div>
+</body>
+
+</html>
