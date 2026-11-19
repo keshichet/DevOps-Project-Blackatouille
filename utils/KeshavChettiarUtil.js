@@ -21,13 +21,19 @@ async function readRecipes() {
 
 // Returns an error message string, or null if the input is valid
 function validateRecipe(body) {
-    const { name, servings, ingredients, steps } = body || {};
+    const { name, description, servings, ingredients, steps, image } = body || {};
 
     if (typeof name !== 'string' || name.trim() === '') {
         return 'Recipe name is required';
     }
     if (name.trim().length > 100) {
         return 'Recipe name must be 100 characters or fewer';
+    }
+    if (typeof description !== 'string' || description.trim() === '') {
+        return 'Description is required';
+    }
+    if (description.trim().length > 300) {
+        return 'Description must be 300 characters or fewer';
     }
     const servingsNum = Number(servings);
     if (servings === undefined || servings === '' || !Number.isInteger(servingsNum) || servingsNum <= 0) {
@@ -59,6 +65,11 @@ function validateRecipe(body) {
     if (typeof steps !== 'string' || steps.trim() === '') {
         return 'Steps are required';
     }
+    if (image !== undefined && image !== '') {
+        if (typeof image !== 'string' || !/^https?:\/\/\S+$/i.test(image.trim())) {
+            return 'Image must be a valid http or https URL';
+        }
+    }
     return null;
 }
 
@@ -69,7 +80,7 @@ async function addRecipe(req, res) {
             return res.status(400).json({ message: error });
         }
 
-        const { name, servings, ingredients, steps } = req.body;
+        const { name, description, servings, ingredients, steps, image } = req.body;
         const recipes = await readRecipes();
 
         const duplicate = recipes.some(
@@ -83,8 +94,8 @@ async function addRecipe(req, res) {
             name: i.name.trim(),
             quantity: Number(i.quantity),
             unit: i.unit
-        }));
-        const newRecipe = new Recipe(name.trim(), Number(servings), cleanIngredients, steps.trim());
+        })); const newRecipe = new Recipe(name.trim(), description.trim(), Number(servings), cleanIngredients, steps.trim(), image ? image.trim() : '');
+
 
         recipes.push(newRecipe);
         await fs.writeFile(RECIPES_FILE, JSON.stringify(recipes, null, 2), 'utf8');

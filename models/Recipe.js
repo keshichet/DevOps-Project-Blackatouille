@@ -1,9 +1,11 @@
 class Recipe {
-    constructor(name, servings, ingredients, steps) {
+    constructor(name, description, servings, ingredients, steps, image) {
         this.name = name;
+        this.description = description;
         this.servings = servings;
         this.ingredients = ingredients;
         this.steps = steps;
+        this.image = image;
         this.locked = false;
         const timestamp = new Date().getTime();
         const random = Math.floor(Math.random() * 1000);
