@@ -1,35 +1,49 @@
 [
-    {
-        "id": "1000000000001",
-        "name": "Ratatouille",
-        "servings": 4,
-        "ingredients": [
-            {
-                "name": "Eggplant",
-                "quantity": 2,
-                "unit": "piece"
-            },
-            {
-                "name": "Olive oil",
-                "quantity": 3,
-                "unit": "tbsp"
-            }
-        ],
-        "steps": "Slice the vegetables, layer them and bake.",
-        "locked": false
-    },
-    {
-        "id": "1000000000002",
-        "name": "Chicken Rice",
-        "servings": 2,
-        "ingredients": [
-            {
-                "name": "Rice",
-                "quantity": 300,
-                "unit": "g"
-            }
-        ],
-        "steps": "Cook the rice in chicken stock.",
-        "locked": true
-    }
+  {
+    "id": "1000000000001",
+    "name": "Ratatouille",
+    "servings": 4,
+    "ingredients": [
+      {
+        "name": "Eggplant",
+        "quantity": 2,
+        "unit": "piece"
+      },
+      {
+        "name": "Olive oil",
+        "quantity": 3,
+        "unit": "tbsp"
+      }
+    ],
+    "steps": "Slice the vegetables, layer them and bake.",
+    "locked": false
+  },
+  {
+    "id": "1000000000002",
+    "name": "Chicken Rice",
+    "servings": 2,
+    "ingredients": [
+      {
+        "name": "Rice",
+        "quantity": 300,
+        "unit": "g"
+      }
+    ],
+    "steps": "Cook the rice in chicken stock.",
+    "locked": true
+  },
+  {
+    "name": "Fried Rice",
+    "servings": 2,
+    "ingredients": [
+      {
+        "name": "Egg",
+        "quantity": 3,
+        "unit": "piece"
+      }
+    ],
+    "steps": "Fry everything.",
+    "locked": false,
+    "id": "1795015601746563"
+  }
 ]

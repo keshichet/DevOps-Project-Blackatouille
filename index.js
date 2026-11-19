@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 app.use(express.static("./public"));
 
 // //Keshav: Create recipe
-// const { addRecipe } = require('./utils/KeshavChettiarUtil');
-// app.post('/add-recipe', addRecipe);
+const { addRecipe } = require('./utils/KeshavChettiarUtil');
+app.post('/add-recipe', addRecipe);
 
 
 
