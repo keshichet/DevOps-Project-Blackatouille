@@ -11,7 +11,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/keshav-chettiar.js"></script>
-    <!-- Brayden: add your script tag here -->
+    <script src="js/brayden-tan.js"></script>
     <!-- Robin: add your script tag here -->
 </head>
 
@@ -23,6 +23,63 @@
             Recipe</button>
 
         <!-- ===== Brayden: recipe list + edit modal ===== -->
+        <h3 class="mt-4">Recipes</h3>
+        <div id="editPageMessage"></div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Servings</th>
+                    <th>Ingredients</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="editRecipeList"></tbody>
+        </table>
+
+        <div class="modal fade" id="editRecipeModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Recipe</h5>
+                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="editMessage"></div>
+                        <input type="hidden" id="editRecipeId">
+                        <div class="form-group">
+                            <label for="editName">Name</label>
+                            <input type="text" class="form-control" id="editName">
+                        </div>
+                        <div class="form-group">
+                            <label for="editDescription">Description</label>
+                            <textarea class="form-control" id="editDescription" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editServings">Servings</label>
+                            <input type="text" class="form-control" id="editServings">
+                        </div>
+                        <label>Ingredients</label>
+                        <div id="editIngredientRows"></div>
+                        <button type="button" class="btn btn-sm btn-outline-secondary mb-3" id="editAddIngredientBtn"
+                            onclick="addEditIngredientRow()">+ Add ingredient</button>
+                        <div class="form-group">
+                            <label for="editSteps">Instructions</label>
+                            <textarea class="form-control" id="editSteps" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editImage">Image URL (optional)</label>
+                            <input type="text" class="form-control" id="editImage" placeholder="https://...">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="editSaveBtn"
+                            onclick="saveRecipeUpdate()">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- ===== Keshav: Create recipe modal ===== -->
         <div class="modal fade" id="createRecipeModal" tabindex="-1" role="dialog" aria-hidden="true">

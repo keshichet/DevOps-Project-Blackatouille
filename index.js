@@ -12,6 +12,11 @@ app.use(express.static("./public"));
 const { addRecipe } = require('./utils/KeshavChettiarUtil');
 app.post('/add-recipe', addRecipe);
 
+//Brayden: Update recipe
+const { updateRecipe, getRecipesForEdit } = require('./utils/BraydenTanUtil');
+app.get('/edit-recipes', getRecipesForEdit);
+app.put('/update-recipe/:id', updateRecipe);
+
 
 
 app.get('/', (req, res) => {
