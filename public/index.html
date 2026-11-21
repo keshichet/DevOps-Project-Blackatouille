@@ -1,131 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Blackatouille - Recipe Manager</title>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <link
+         href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+         rel="stylesheet"
+      />
+      <link rel="stylesheet" href="css/styles.css" />
+      <script src="js/keshav-chettiar.js"></script>
+      <script src="js/brayden-tan.js"></script>
+      <script src="js/robin-allanigue.js"></script>
+   </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blackatouille - Recipe Manager</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/keshav-chettiar.js"></script>
-    <script src="js/brayden-tan.js"></script>
-    <!-- Robin: add your script tag here -->
-</head>
+   <body>
+      <div class="container mt-5">
+         <h1 class="mb-4">Blackatouille</h1>
 
-<body>
-    <div class="container mt-5">
-        <h1 class="mb-4">Blackatouille</h1>
+         <button
+            type="button"
+            class="btn btn-primary mb-3"
+            data-toggle="modal"
+            data-target="#createRecipeModal"
+         >
+            Create Recipe
+         </button>
 
-        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#createRecipeModal">Create
-            Recipe</button>
-
-        <!-- ===== Brayden: recipe list + edit modal ===== -->
-        <h3 class="mt-4">Recipes</h3>
-        <div id="editPageMessage"></div>
-        <table class="table table-striped">
+         <!-- ===== Brayden: recipe list + edit modal ===== -->
+         <h3 class="mt-4">Recipes</h3>
+         <div id="editPageMessage"></div>
+         <table class="table table-striped">
             <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Servings</th>
-                    <th>Ingredients</th>
-                    <th></th>
-                </tr>
+               <tr>
+                  <th>Name</th>
+                  <th>Servings</th>
+                  <th>Ingredients</th>
+                  <th></th>
+               </tr>
             </thead>
             <tbody id="editRecipeList"></tbody>
-        </table>
+         </table>
 
-        <div class="modal fade" id="editRecipeModal" tabindex="-1" role="dialog" aria-hidden="true">
+         <div
+            class="modal fade"
+            id="editRecipeModal"
+            tabindex="-1"
+            role="dialog"
+            aria-hidden="true"
+         >
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Edit Recipe</h5>
-                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="editMessage"></div>
-                        <input type="hidden" id="editRecipeId">
-                        <div class="form-group">
-                            <label for="editName">Name</label>
-                            <input type="text" class="form-control" id="editName">
-                        </div>
-                        <div class="form-group">
-                            <label for="editDescription">Description</label>
-                            <textarea class="form-control" id="editDescription" rows="2"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="editServings">Servings</label>
-                            <input type="text" class="form-control" id="editServings">
-                        </div>
-                        <label>Ingredients</label>
-                        <div id="editIngredientRows"></div>
-                        <button type="button" class="btn btn-sm btn-outline-secondary mb-3" id="editAddIngredientBtn"
-                            onclick="addEditIngredientRow()">+ Add ingredient</button>
-                        <div class="form-group">
-                            <label for="editSteps">Instructions</label>
-                            <textarea class="form-control" id="editSteps" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="editImage">Image URL (optional)</label>
-                            <input type="text" class="form-control" id="editImage" placeholder="https://...">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="editSaveBtn"
-                            onclick="saveRecipeUpdate()">Save Changes</button>
-                    </div>
-                </div>
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Edit Recipe</h5>
+                     <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                     </button>
+                  </div>
+                  <div class="modal-body">
+                     <div id="editMessage"></div>
+                     <input type="hidden" id="editRecipeId" />
+                     <div class="form-group">
+                        <label for="editName">Name</label>
+                        <input type="text" class="form-control" id="editName" />
+                     </div>
+                     <div class="form-group">
+                        <label for="editDescription">Description</label>
+                        <textarea
+                           class="form-control"
+                           id="editDescription"
+                           rows="2"
+                        ></textarea>
+                     </div>
+                     <div class="form-group">
+                        <label for="editServings">Servings</label>
+                        <input
+                           type="text"
+                           class="form-control"
+                           id="editServings"
+                        />
+                     </div>
+                     <label>Ingredients</label>
+                     <div id="editIngredientRows"></div>
+                     <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary mb-3"
+                        id="editAddIngredientBtn"
+                        onclick="addEditIngredientRow()"
+                     >
+                        + Add ingredient
+                     </button>
+                     <div class="form-group">
+                        <label for="editSteps">Instructions</label>
+                        <textarea
+                           class="form-control"
+                           id="editSteps"
+                           rows="3"
+                        ></textarea>
+                     </div>
+                     <div class="form-group">
+                        <label for="editImage">Image URL (optional)</label>
+                        <input
+                           type="text"
+                           class="form-control"
+                           id="editImage"
+                           placeholder="https://..."
+                        />
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                     >
+                        Close
+                     </button>
+                     <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="editSaveBtn"
+                        onclick="saveRecipeUpdate()"
+                     >
+                        Save Changes
+                     </button>
+                  </div>
+               </div>
             </div>
-        </div>
+         </div>
 
-        <!-- ===== Keshav: Create recipe modal ===== -->
-        <div class="modal fade" id="createRecipeModal" tabindex="-1" role="dialog" aria-hidden="true">
+         <!-- ===== Keshav: Create recipe modal ===== -->
+         <div
+            class="modal fade"
+            id="createRecipeModal"
+            tabindex="-1"
+            role="dialog"
+            aria-hidden="true"
+         >
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Create Recipe</h5>
-                        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="createMessage"></div>
-                        <div class="form-group">
-                            <label for="recipeName">Name</label>
-                            <input type="text" class="form-control" id="recipeName">
-                        </div>
-                        <div class="form-group">
-                            <label for="recipeDescription">Description</label>
-                            <textarea class="form-control" id="recipeDescription" rows="2"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="recipeServings">Servings</label>
-                            <input type="text" class="form-control" id="recipeServings">
-                        </div>
-                        <label>Ingredients</label>
-                        <div id="ingredientRows"></div>
-                        <button type="button" class="btn btn-sm btn-outline-secondary mb-3"
-                            onclick="addIngredientRow()">+ Add ingredient</button>
-                        <div class="form-group">
-                            <label for="recipeSteps">Instructions</label>
-                            <textarea class="form-control" id="recipeSteps" rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="recipeImage">Image URL (optional)</label>
-                            <input type="text" class="form-control" id="recipeImage" placeholder="https://...">
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" onclick="createRecipe()">Create Recipe</button>
-                    </div>
-                </div>
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h5 class="modal-title">Create Recipe</h5>
+                     <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                     </button>
+                  </div>
+                  <div class="modal-body">
+                     <div id="createMessage"></div>
+                     <div class="form-group">
+                        <label for="recipeName">Name</label>
+                        <input
+                           type="text"
+                           class="form-control"
+                           id="recipeName"
+                        />
+                     </div>
+                     <div class="form-group">
+                        <label for="recipeDescription">Description</label>
+                        <textarea
+                           class="form-control"
+                           id="recipeDescription"
+                           rows="2"
+                        ></textarea>
+                     </div>
+                     <div class="form-group">
+                        <label for="recipeServings">Servings</label>
+                        <input
+                           type="text"
+                           class="form-control"
+                           id="recipeServings"
+                        />
+                     </div>
+                     <label>Ingredients</label>
+                     <div id="ingredientRows"></div>
+                     <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary mb-3"
+                        onclick="addIngredientRow()"
+                     >
+                        + Add ingredient
+                     </button>
+                     <div class="form-group">
+                        <label for="recipeSteps">Instructions</label>
+                        <textarea
+                           class="form-control"
+                           id="recipeSteps"
+                           rows="3"
+                        ></textarea>
+                     </div>
+                     <div class="form-group">
+                        <label for="recipeImage">Image URL (optional)</label>
+                        <input
+                           type="text"
+                           class="form-control"
+                           id="recipeImage"
+                           placeholder="https://..."
+                        />
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                     >
+                        Close
+                     </button>
+                     <button
+                        type="button"
+                        class="btn btn-primary"
+                        onclick="createRecipe()"
+                     >
+                        Create Recipe
+                     </button>
+                  </div>
+               </div>
             </div>
-        </div>
+         </div>
 
-        <!-- ===== Robin: delete recipe ===== -->
-    </div>
-</body>
-
+         <!-- ===== Robin: delete recipe ===== -->
+         <div class="card border-danger mt-4 mb-5" id="deleteRecipeCard">
+            <div class="card-header text-danger font-weight-bold">
+               Delete a recipe
+            </div>
+            <div class="card-body">
+               <div class="form-group">
+                  <label for="deleteRecipeSelect">Recipe</label>
+                  <select class="form-control" id="deleteRecipeSelect"></select>
+               </div>
+               <div class="form-group mb-2">
+                  <label for="deleteConfirmName"
+                     >Confirm by typing the recipe name</label
+                  >
+                  <input
+                     type="text"
+                     class="form-control"
+                     id="deleteConfirmName"
+                     autocomplete="off"
+                  />
+                  <small class="form-text text-muted" id="deleteHint"></small>
+               </div>
+               <button
+                  type="button"
+                  class="btn btn-danger"
+                  id="deleteRecipeBtn"
+               >
+                  Delete recipe
+               </button>
+               <div id="deleteMessage"></div>
+            </div>
+         </div>
+         <!-- ===== end Robin ===== -->
+      </div>
+   </body>
 </html>
