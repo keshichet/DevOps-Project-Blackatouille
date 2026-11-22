@@ -1,0 +1,12 @@
+# Normalise line endings across the team (Mac and Windows)
+* text=auto eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+
+# Never touch binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
